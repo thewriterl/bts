@@ -19,7 +19,6 @@ import { RouterModule} from '@angular/router';
     FilmDetailComponent
   ],
   imports: [
-    RouterModule.forRoot(),
     BrowserModule,
     NgbModule.forRoot(),
     AppRoutingModule,

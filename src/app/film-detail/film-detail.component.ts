@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-film-detail',
@@ -7,9 +8,43 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FilmDetailComponent implements OnInit {
 
-  constructor() { }
+  id: String;
+  currentFilm: any;
+  films = {
+    'film': [
+      {
+        'id': '0',
+        'title': 'O Poderoso Chefão',
+        'description': 'Máfia',
+        'cast': 'Al Pacino'
+      }, {
+        'id': '1',
+        'title': 'Star Wars',
+        'description': 'Sci-fi',
+        'cast': 'Mark Hamill'
+      }, {
+        'id': '2',
+        'title': 'Hello World',
+        'description': 'desc',
+        'cast': 'cast'
+      }, {
+        'id': '3',
+        'title': '---',
+        'description': '=',
+        'cast': '*'
+      },
+    ]
+  };
 
-  ngOnInit() {
-  }
+constructor(public activatedRoute: ActivatedRoute) {
+}
+
+ngOnInit() {
+  this.id = this.activatedRoute.snapshot.paramMap.get('id');
+  console.log(this.id);
+  this.currentFilm = this.films.film[this.id];
+
+
+}
 
 }

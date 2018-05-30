@@ -13,6 +13,14 @@
 <div class="py-4 bg-light">
   <div class="container">
     <div class="row">
+      <div class="col-12" (click)="openModal(film)" *ngFor="let film of films.film" [hidden]="film.highlight == false">
+        <div class="card box-shadow">
+          <img src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" class="w-100">
+          <div class="card-body">
+            <p class="card-text text-center">{{film.title}}</p>
+          </div>
+        </div>
+      </div>
       <div class="col-md-4 p-3" *ngFor="let film of films.film" (click)="openModal(film)">
         <div class="card box-shadow">
           <img src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" class="w-100">
