@@ -1,0 +1,18 @@
+.filmShowcase {
+  display: inline-block;
+  list-style: none;
+}
+
+.film :hover {
+  size: 10%;
+}
+
+.poster {
+  max-height: 370px;
+  max-width: 715px;
+}
+
+.modal-dialog {
+  max-width: 0!important;
+}
+
