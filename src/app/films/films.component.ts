@@ -13,50 +13,51 @@ export class FilmsComponent implements OnInit {
   films = {
     'film': [
       {
-        'id': 1,
+        'id': '4',
+        'title': 'Guerra Infinita',
+        'description': 'Super Herói',
+        'cast': 'Robert Downey Jr.',
+        'highlight': false
+      },
+      {
+        'id': '0',
         'title': 'O Poderoso Chefão',
         'description': 'Máfia',
-        'cast': 'Al Pacino'
+        'cast': 'Al Pacino',
+        'highlight': false
       }, {
-        'id': 2,
+        'id': '1',
         'title': 'Star Wars',
         'description': 'Sci-fi',
-        'cast': 'Mark Hamill'
+        'cast': 'Mark Hamill',
+        'highlight': false
       }, {
-        'id': 3,
+        'id': '2',
         'title': 'Hello World',
         'description': 'desc',
-        'cast': 'cast'
+        'cast': 'cast',  
+        'highlight': true
       }, {
-        'id': 4,
+        'id': '3',
         'title': '---',
         'description': '=',
-        'cast': '*'
+        'cast': '*',
+        'highlight': false
       },
     ]
   };
 
-
   constructor(private modalService: NgbModal) { }
 
   ngOnInit() {
+    console.log(this.films);
+    
   }
 
   openModal(film) {
     console.log(film);
     const modalRef = this.modalService.open(FilmModalComponent, { centered: true });
     modalRef.componentInstance.film = film;
-    modalRef.componentInstance.description = "This is the description"
-  }
-
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
   }
 
 }

@@ -11,11 +11,15 @@ export class FilmModalComponent {
 
   @Input() film;
   @Input() description;
+  loading: boolean = false;
 
   constructor(public activeModal: NgbActiveModal, public router: Router) { }
 
   goTo(id) {
-    this.router.navigateByUrl('/film');
+    console.log(id);
+    this.loading = true;
+    this.router.navigateByUrl('/film/' + id);
+    this.activeModal.close();
   }
 
 }
