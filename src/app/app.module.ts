@@ -8,6 +8,7 @@ import { FilmModalComponent } from './film-modal/film-modal.component';
 import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule} from '@angular/router';
+import { PostsComponent } from './posts/posts.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { RouterModule} from '@angular/router';
     NavbarComponent,
     FilmsComponent,
     FilmModalComponent,
-    FilmDetailComponent
+    FilmDetailComponent,
+    PostsComponent
   ],
   imports: [
     BrowserModule,

@@ -20,10 +20,10 @@
         </div>
       </div>
       <div class="col-md-4 p-3" *ngFor="let film of films.film" (click)="openModal(film)">
-        <div class="card box-shadow">
+        <div class="card box-shadow d-poster">
           <img src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg" class="w-100">
           <div class="card-body">
-            <p class="card-text text-center">{{film.title}}</p>
+            <p class="card-text text-center card-img-overlay animated fadeIn">{{film.title}}</p>
           </div>
         </div>
       </div>

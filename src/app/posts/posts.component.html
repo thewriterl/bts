@@ -1,0 +1,14 @@
+<div class="container text-center" *ngFor="let posts of films.post">
+  <div *ngIf="posts.type == 'article'">
+    <hr>
+    <h1>{{posts.header}}</h1>
+    <p>{{posts.content}}</p>
+  </div>
+  <div *ngIf="posts.type == 'video'">
+    <hr>
+    <img class="w-100" [src]="posts.video">
+    <h1>{{posts.header}}</h1>
+    <p>{{posts.content}}</p>
+  </div>
+
+</div>

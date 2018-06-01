@@ -33,6 +33,12 @@ export class FilmDetailComponent implements OnInit {
         'description': '=',
         'cast': '*'
       },
+      {
+        'id': '4',
+        'title': 'Guerra Infinita',
+        'description': 'Marvel',
+        'cast': 'Robert Downey Jr.'
+      }
     ]
   };
 
