@@ -40,7 +40,15 @@ constructor(public activatedRoute: ActivatedRoute) {
 }
 
 ngOnInit() {
+<<<<<<< HEAD
   this.currentFilm = this.films.film[this.activatedRoute.snapshot.paramMap.get('id')];
+=======
+  this.id = this.activatedRoute.snapshot.paramMap.get('id');
+  console.log(this.id);
+  this.currentFilm = this.films.film[this.id];
+
+
+>>>>>>> a99fda1bd9f99da8c57b2bc79c43422e95173fdf
 }
 
 }
