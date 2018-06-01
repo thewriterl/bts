@@ -1,3 +1,4 @@
+import { FilmsService } from './films/films.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule} from '@ng-bootstrap/ng-bootstrap';
@@ -9,6 +10,7 @@ import { FilmDetailComponent } from './film-detail/film-detail.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { RouterModule} from '@angular/router';
 import { PostsComponent } from './posts/posts.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -18,14 +20,16 @@ import { PostsComponent } from './posts/posts.component';
     FilmsComponent,
     FilmModalComponent,
     FilmDetailComponent,
-    PostsComponent
+    PostsComponent,
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+
     NgbModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [FilmsService],
   bootstrap: [AppComponent],
   entryComponents: [
     FilmModalComponent

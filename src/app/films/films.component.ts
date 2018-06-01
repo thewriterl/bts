@@ -1,3 +1,4 @@
+import { FilmsService } from './films.service';
 import { FilmModalComponent } from './../film-modal/film-modal.component';
 import { Component, OnInit } from '@angular/core';
 import { NgbModal, NgbActiveModal, NgbModalOptions, NgbModalRef, ModalDismissReasons, NgbModalModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -47,11 +48,15 @@ export class FilmsComponent implements OnInit {
     ]
   };
 
-  constructor(private modalService: NgbModal) { }
+  data: any;
+
+  constructor(private modalService: NgbModal, private filmService: FilmsService) { }
 
   ngOnInit() {
     console.log(this.films);
-    
+    this.filmService.getFilms().subscribe((res: any) => {
+      this.data = res;
+    });
   }
 
   openModal(film) {
