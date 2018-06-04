@@ -36,7 +36,7 @@ export class FilmsComponent implements OnInit {
         'id': '2',
         'title': 'Hello World',
         'description': 'desc',
-        'cast': 'cast',  
+        'cast': 'cast',
         'highlight': true
       }, {
         'id': '3',
@@ -50,19 +50,23 @@ export class FilmsComponent implements OnInit {
 
   data: any;
 
-  constructor(private modalService: NgbModal, private filmService: FilmsService) { }
-
-  ngOnInit() {
-    console.log(this.films);
+  constructor(private modalService: NgbModal, private filmService: FilmsService) {
     this.filmService.getFilms().subscribe((res: any) => {
       this.data = res;
+      debugger
+      console.log(this.data.title);
     });
+  }
+
+  ngOnInit() {
+    console.log(this.data)
   }
 
   openModal(film) {
     console.log(film);
     const modalRef = this.modalService.open(FilmModalComponent, { centered: true });
     modalRef.componentInstance.film = film;
+    modalRef.componentInstance.description = film.overview;
   }
 
 }

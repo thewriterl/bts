@@ -11,7 +11,7 @@ export class FilmsService {
 
   constructor(private http: HttpClient ) { }
 
-  serverMovieDB = 'https://api.themoviedb.org/3/movie/550?api_key=ed38b3d37aa049454b6828b74c22a218';
+  serverMovieDB = 'https://api.themoviedb.org/3/discover/movie?api_key=ed38b3d37aa049454b6828b74c22a218&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1';
 
   // getFilms(): Observable<any> {
   //   const headers = new Headers({ 'Content-Type': 'application/json' });
