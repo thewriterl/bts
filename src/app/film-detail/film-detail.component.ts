@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import {FilmsService} from "../films/films.service";
 
 @Component({
   selector: 'app-film-detail',
@@ -10,43 +11,18 @@ export class FilmDetailComponent implements OnInit {
 
   id: String;
   currentFilm: any;
-  films = {
-    'film': [
-      {
-        'id': '0',
-        'title': 'O Poderoso Chefão',
-        'description': 'Máfia',
-        'cast': 'Al Pacino'
-      }, {
-        'id': '1',
-        'title': 'Star Wars',
-        'description': 'Sci-fi',
-        'cast': 'Mark Hamill'
-      }, {
-        'id': '2',
-        'title': 'Hello World',
-        'description': 'desc',
-        'cast': 'cast'
-      }, {
-        'id': '3',
-        'title': '---',
-        'description': '=',
-        'cast': '*'
-      },
-      {
-        'id': '4',
-        'title': 'Guerra Infinita',
-        'description': 'Marvel',
-        'cast': 'Robert Downey Jr.'
-      }
-    ]
-  };
 
-constructor(public activatedRoute: ActivatedRoute) {
+constructor(public activatedRoute: ActivatedRoute, public  filmService: FilmsService) {
+
+  this.id = this.activatedRoute.snapshot.params.id;
+  debugger
 }
 
-ngOnInit() {
-  this.currentFilm = this.films.film[this.activatedRoute.snapshot.paramMap.get('id')];
-}
+  ngOnInit() {
+    debugger
+    this.filmService.getFilmById(this.id).subscribe(res => {
+      this.currentFilm = res;
+    });
+  }
 
 }

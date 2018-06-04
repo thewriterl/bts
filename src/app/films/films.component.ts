@@ -66,7 +66,6 @@ export class FilmsComponent implements OnInit {
     console.log(film);
     const modalRef = this.modalService.open(FilmModalComponent, { centered: true });
     modalRef.componentInstance.film = film;
-    modalRef.componentInstance.description = film.overview;
   }
 
 }
