@@ -35,7 +35,6 @@ export class FilmsService {
 
   getFilmById(id): Observable<any> {
     debugger
-    const id;
     console.log(this.baseUrl + '/movie/' + id + this.apiKey);
     return this.http.get(this.baseUrl + '/movie/' + id + this.apiKey);
   }
