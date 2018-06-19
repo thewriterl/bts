@@ -19,8 +19,8 @@
           <!--<p class="card-text text-center card-img-overlay animated fadeIn">{{data.title}}</p>-->
         <!--</div>-->
       <!--</div>-->
-        <div class="card box-shadow d-poster" *ngFor="let film of data?.results" (click)="openModal(film)" style="max-width: 200px; min-width: 200px">
-          <img src="http://image.tmdb.org/t/p/w200/{{film?.poster_path}}" class="w-100">
+        <div class="card box-shadow d-poster" *ngFor="let film of data" (click)="openModal(film)" style="max-width: 200px; min-width: 200px">
+          <img [src]="'data:' + film.posterContentType + ';base64,' + film.poster" class="w-100">
           <div class="card-body">
             <p class="card-text text-center card-img-overlay animated fadeIn">{{film?.title}}</p>
           </div>

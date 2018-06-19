@@ -1,3 +1,4 @@
+import { Http, ConnectionBackend, HttpModule } from '@angular/http';
 import { FilmsService } from './films/films.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -29,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule.forRoot(),
     AppRoutingModule,
   ],
-  providers: [FilmsService],
+  providers: [
+    FilmsService 
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     FilmModalComponent

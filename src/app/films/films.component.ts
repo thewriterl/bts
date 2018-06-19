@@ -429,15 +429,16 @@ export class FilmsComponent implements OnInit {
   data: any;
 
   constructor(private modalService: NgbModal, private filmService: FilmsService) {
+  }
+  
+  ngOnInit() {
     this.filmService.getFilms().subscribe((res: any) => {
+      debugger
       this.data = res;
-      console.log(this.data.title);
+      console.log(this.data);
     }, (err) => {
       this.data = this.static;
     });
-  }
-
-  ngOnInit() {
     console.log(this.data)
   }
 

@@ -1,8 +1,8 @@
 <div class="container">
-    <img class="col-4 d-inline" src="https://pingendo.com/assets/photos/wireframe/photo-1.jpg">
+    <img class="col-4 d-inline" [src]="'data:' + currentFilm.posterContentType + ';base64,' + currentFilm.poster">
     <h3 class="d-inline">{{currentFilm?.title}}</h3>
     <p>{{currentFilm?.overview}}</p><br>
-    <p>Nota: {{currentFilm?.vote_average}}</p>
+    <p>Nota: {{currentFilm?.rating}}</p>
 </div>
 <div class="container">
     <app-posts></app-posts>
