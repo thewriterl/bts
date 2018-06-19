@@ -428,22 +428,19 @@ export class FilmDetailComponent implements OnInit {
   }
 
 constructor(public activatedRoute: ActivatedRoute, public  filmService: FilmsService) {
-
   this.id = this.activatedRoute.snapshot.params.id;
-  debugger
+  this.filmService.getFilmById(this.id).subscribe(res => {
+    this.currentFilm = res;
+  }, (erro => {
+    for (var i = 0; i < this.static.results.length; i++) {
+      if (this.static.results[i].id.toString() == this. id) {
+        this.currentFilm = this.static.results[i];
+      }
+    }
+  }) );
 }
 
   ngOnInit() {
-    debugger
-    this.filmService.getFilmById(this.id).subscribe(res => {
-      this.currentFilm = res;
-    }, (erro => {
-      for (var i = 0; i < this.static.results.length; i++) {
-        if (this.static.results[i].id.toString() == this. id) {
-          this.currentFilm = this.static.results[i];
-        }
-      }
-    }) );
   }
 
 }

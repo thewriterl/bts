@@ -1,3 +1,4 @@
+import { FilmsService } from './../films/films.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -8,6 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PostsComponent implements OnInit {
 
+  data: any;
+  id: any;
   films = {
     'post': [
       {
@@ -27,11 +30,17 @@ export class PostsComponent implements OnInit {
     ]
   };
 
-  constructor(public activatedRoute: ActivatedRoute) {
+  constructor(public activatedRoute: ActivatedRoute, public filmService: FilmsService) {
+    this.id = this.activatedRoute.snapshot.params.id;
   }
   
   ngOnInit() {
-    
+    this.filmService.getFilmById(this.id).subscribe((res) => {
+      this.data = res;
+      console.log(this.data);
+    }, (err) => {
+      console.log('erro');
+    });
   }
 
 }
